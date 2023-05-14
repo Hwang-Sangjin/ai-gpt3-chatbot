@@ -1,18 +1,23 @@
 import React, { useEffect } from "react";
 import data from "../data/question";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const QNA = () => {
     const [count, setCount] = useState(0);
+    let navigate = useNavigate();
 
-    useEffect(()=>{
-        console.log(count)
-    },[count])
 
-    function chnageData(index){
-    
-        setCount(count + 1)
+
+    function chnageData(){
+        if(count===4){
+          navigate('/chat')
+        }
+        else{
+          setCount(count + 1)
+        }
+        
       }
 
   return (
